@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<auth>
-  <appId>5172229</appId>
-  <scope>groups</scope>
-  <authUrl>"https://oauth.vk.com/authorize"</authUrl>
-  <redirectUrl>"https://oauth.vk.com/blank.html"</redirectUrl>  
-</auth>

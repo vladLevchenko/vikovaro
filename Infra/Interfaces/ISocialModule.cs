@@ -9,12 +9,12 @@ namespace Infra.Interfaces
 {
     public interface ISocialModule
     {
-        void SetCurrentUser(string id, string token);
+        
         List<InfoPoint> GetInfoPointsByIds(List<int> Ids);
-        List<InfoPoint> SearchInfoPoints(string searchString);
-        List<InfoPoint> GetUserInfoPoints();
 
-        bool IsAuthenticated { get; }
+        List<InfoPoint> SearchInfoPoints(string searchString);
+
+		List<InfoPoint> GetUserInfoPoints(NetworkUser user);     
             
     }
 }

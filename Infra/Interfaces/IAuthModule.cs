@@ -8,7 +8,6 @@ namespace Infra.Interfaces
 {
     public interface IAuthModule
     {
-        void Authenticate(ISocialModule socialModule);
-       
+        void Authenticate();       
     }
 }

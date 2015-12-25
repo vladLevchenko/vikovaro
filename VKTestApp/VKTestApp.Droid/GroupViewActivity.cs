@@ -20,6 +20,7 @@ namespace VKTestApp.Droid
     [Activity(Label = "GroupView")]
     public class GroupViewActivity : Activity
     {
+		IAppUserModule _userModule;
         ISocialModule _socialModule;
         List<InfoPoint> _userInfoPoints;
         List<InfoPoint> _selectedInfoPoints;
@@ -31,7 +32,8 @@ namespace VKTestApp.Droid
 
             SetContentView(Resource.Layout.GroupsView);
             _socialModule = Mvx.Resolve<ISocialModule>();
-            _userInfoPoints = _socialModule.GetUserInfoPoints();
+			_userModule = Mvx.Resolve<IAppUserModule> ();
+			_userInfoPoints = _socialModule.GetUserInfoPoints(_userModule.User);
             _selectedInfoPoints = new List<InfoPoint>();
             // Create your application here
             var listView = FindViewById<ListView>(Resource.Id.List);

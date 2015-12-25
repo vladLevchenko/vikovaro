@@ -21,8 +21,7 @@ namespace VKTestApp.Droid.Adapters
     {
         private List<InfoPoint> _items;
         private Activity _context;
-        private int count = 0;
-
+        
         public VKGroupViewAdapter(List<InfoPoint> items, Activity context)
         {
             _items = items;

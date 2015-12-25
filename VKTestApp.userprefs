@@ -1,0 +1,27 @@
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="VKTestApp\VKTestApp.Droid\VKTestApp.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.ZH8004CRFF" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="VKTestApp\VKTestApp\VK\VKUserModule.cs" Line="7" Column="23" />
+      <File FileName="Infra\Interfaces\IAppUserModule.cs" Line="11" Column="28" />
+      <File FileName="VKTestApp\VKTestApp.Droid\TabbedCarouselActivity.cs" Line="24" Column="36" />
+      <File FileName="VKTestApp\VKTestApp\VK\VKSocialModule.cs" Line="32" Column="55" />
+      <File FileName="Infra\Interfaces\ISocialModule.cs" Line="10" Column="5" />
+      <File FileName="VKTestApp\VKTestApp.Droid\GroupViewActivity.cs" Line="43" Column="1" />
+      <File FileName="VKTestApp\VKTestApp.Droid\MainActivity.cs" Line="34" Column="42" />
+      <File FileName="VKTestApp\VKTestApp.Droid\Bootstrapper\VKDroidBootstrapper.cs" Line="31" Column="43" />
+      <File FileName="VKTestApp\VKTestApp\VK\VKUser.cs" Line="1" Column="1" />
+      <File FileName="VKTestApp\VKTestApp\VK\VKPage.cs" Line="1" Column="1" />
+      <File FileName="VKTestApp\VKTestApp.Droid\VKDroidAuthModule.cs" Line="18" Column="5" />
+      <File FileName="Infra\Interfaces\IAuthModule.cs" Line="9" Column="5" />
+      <File FileName="d:\Projects\vikovaro\VKTestApp\VKTestApp.Droid\Adapters\VKGroupViewAdapter.cs" Line="52" Column="10" />
+      <File FileName="VKTestApp\VKTestApp.Droid\Resources\layout\GroupViewItemSelector.axml" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="D:\Projects\vikovaro\VKTestApp\VKTestApp.Droid\GroupViewActivity.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

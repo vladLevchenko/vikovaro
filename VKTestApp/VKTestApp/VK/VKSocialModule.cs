@@ -17,7 +17,7 @@ namespace VKTestApp.VK
     public class VKSocialModule : ISocialModule
     {
 
-        private VKUser User;
+       
         private string RootURL { get { return "https://api.vk.com/method/"; } }
 
         public VKSocialModule()
@@ -29,14 +29,14 @@ namespace VKTestApp.VK
             throw new NotImplementedException();
         }
 
-        public List<InfoPoint> GetUserInfoPoints()
+		public List<InfoPoint> GetUserInfoPoints(NetworkUser user)
         {
            var query = new StringBuilder(RootURL);
             query.Append("groups.get?").
                 Append("user_id=").
-                Append(User.ID).
+				Append(user.ID).
                 Append("&access_token=").
-                Append(User.Token).
+				Append(user.Token).
                 Append("&filter=groups,publics").
                 Append("&extended=1");
                 
@@ -72,14 +72,6 @@ namespace VKTestApp.VK
             throw new NotImplementedException();
         }
 
-        public void SetCurrentUser(string id, string token)
-        {
-            User = new VKUser { ID = id, Token = token };
-        }
-
-        public bool IsAuthenticated
-        {
-            get { return User != null; }
-        }
+      
     }
 }

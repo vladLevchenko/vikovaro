@@ -18,13 +18,20 @@ namespace VKTestApp.Droid
     public class VKDroidAuthModule : IAuthModule
     {
         private ISocialModule _socialModule;
+		private IAppUserModule _userModule;
 
         public Context AppContext { get { return Application.Context; } }
 
-        public void Authenticate(ISocialModule socialModule)
+		public VKDroidAuthModule(IAppUserModule userModule, ISocialModule socialModule)
+		{
+			_userModule = userModule;
+			_socialModule = socialModule;
+		}
+
+		public void Authenticate()
         {
-            _socialModule = socialModule;
-            if (!_socialModule.IsAuthenticated)
+			
+			if (!_userModule.IsAuthenticated)
             {
                 var acc = RetreiveCredentials();
                 if (acc == null)
@@ -34,12 +41,12 @@ namespace VKTestApp.Droid
 
         public void DisplayAuthDialog()
         {
-            var intent = GetAuthenticator(_socialModule).GetUI(AppContext);
+            var intent = GetAuthenticator().GetUI(AppContext);
             intent.SetFlags(ActivityFlags.NewTask);
             AppContext.StartActivity(intent);
         }
 
-        private OAuth2Authenticator GetAuthenticator(ISocialModule socialModule)
+        private OAuth2Authenticator GetAuthenticator()
         {
             var auth = new OAuth2Authenticator(
                 clientId: "5172229",
@@ -61,7 +68,7 @@ namespace VKTestApp.Droid
             {
                 //StoreCredentials(e);
                 //ShowStoreDialog(e);
-                _socialModule.SetCurrentUser(e.Account.Properties["user_id"], e.Account.Properties["access_token"].ToString());
+				_userModule.SetCurrentUser(e.Account.Properties["user_id"], e.Account.Properties["access_token"].ToString());
             }
         }
 
@@ -82,7 +89,7 @@ namespace VKTestApp.Droid
 
         private Account RetreiveCredentials()
         {
-            if(_socialModule.IsAuthenticated)
+			if(_userModule.IsAuthenticated)
             {
                 return null;
             }

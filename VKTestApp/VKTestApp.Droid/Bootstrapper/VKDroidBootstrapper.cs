@@ -24,10 +24,11 @@ namespace Bootstrapper
         public static void RegisterTypes()
         {
             MvxSimpleIoCContainer.Initialize();
-            Mvx.RegisterSingleton<ISocialModule>(new VKSocialModule());            
+			Mvx.RegisterSingleton<IAppUserModule> (new VKUserModule ());
+			Mvx.RegisterType<ISocialModule, VKSocialModule> ();
             Mvx.RegisterType<NetworkUser, VKUser>();
             Mvx.RegisterType<InfoPoint, VKPage>();
-            Mvx.RegisterType<IAuthModule, VKDroidAuthModule>();
+			Mvx.RegisterType<IAuthModule, VKDroidAuthModule>();
             
         }
     }

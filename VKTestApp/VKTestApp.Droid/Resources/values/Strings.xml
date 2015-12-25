@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Authenticate</string>
-  <string name="loadGroups">Load Groups</string>
+  	<string name="loadGroups">Load Groups</string>
 	<string name="app_name">VKTestApp.Droid</string>
+
+	<color name="black" >#ffffff</color>
+    <color name="royal_blue">#4169e1</color>
 </resources>

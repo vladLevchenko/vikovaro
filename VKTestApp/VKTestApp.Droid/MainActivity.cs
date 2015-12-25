@@ -26,13 +26,12 @@ namespace VKTestApp.Droid
 			
 			SetContentView (Resource.Layout.Main);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
+
 			Button button = FindViewById<Button> (Resource.Id.myButton);
             var loadGroupsBtn = FindViewById<Button>(Resource.Id.loadGroupsBtn);
 			
 			button.Click += delegate {
-                _authModule.Authenticate(_socialModule);               
+                _authModule.Authenticate();               
             };
 
             loadGroupsBtn.Click += delegate

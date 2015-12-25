@@ -8,7 +8,12 @@ namespace Infra.Interfaces
 {
     public interface IAppUserModule
     {
-        void SaveUserInfoPoints(List<InfoPoint> infoPoints);
-        List<InfoPoint> GetSavedUserInfoPoints();
+		NetworkUser User { get; }
+		
+		void SetCurrentUser (string id, string token);
+
+		List<InfoPoint> UserInfoPoints { get; set; }
+
+		bool IsAuthenticated { get; }
     }
 }
