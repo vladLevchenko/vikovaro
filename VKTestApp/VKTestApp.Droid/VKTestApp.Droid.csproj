@@ -98,10 +98,6 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\TabbedCarouselView.axml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\GroupViewItemSelector.axml" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\GroupViewItemSelector.axml" />
-    <AndroidResource Include="Resources\drawable-xhdpi\GroupViewItemSelector.axml" />
-    <AndroidResource Include="Resources\drawable-mdpi\GroupViewItemSelector.axml" />
-    <AndroidResource Include="Resources\drawable-hdpi\GroupViewItemSelector.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />

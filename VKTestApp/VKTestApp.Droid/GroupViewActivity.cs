@@ -48,11 +48,13 @@ namespace VKTestApp.Droid
             var item = _userInfoPoints[e.Position];
             if(!e.View.Selected && count<5)
             {
+				e.View.SetBackgroundColor(Color.RoyalBlue);
                 e.View.Selected = true;
                 count++;
             }
             else
             {
+				e.View.SetBackgroundColor(Color.White);
                 e.View.Selected = false;
                 count--;
             }

@@ -16,12 +16,14 @@ namespace VKTestApp.Droid
 	public class MainActivity : Activity
 	{
         private ISocialModule _socialModule;
+		private IAppUserModule _userModule;
         private IAuthModule _authModule;
         protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
             _socialModule = Mvx.Resolve<ISocialModule>();
-            _authModule = Mvx.Resolve<IAuthModule>();
+			_userModule = Mvx.Resolve<IAppUserModule> ();
+			_authModule = new VKDroidAuthModule (_userModule, _socialModule, this);// Mvx.Resolve<IAuthModule>();
             
 			
 			SetContentView (Resource.Layout.Main);

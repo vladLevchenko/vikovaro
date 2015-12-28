@@ -28,8 +28,6 @@ namespace Bootstrapper
 			Mvx.RegisterType<ISocialModule, VKSocialModule> ();
             Mvx.RegisterType<NetworkUser, VKUser>();
             Mvx.RegisterType<InfoPoint, VKPage>();
-			Mvx.RegisterType<IAuthModule, VKDroidAuthModule>();
-            
         }
     }
 }

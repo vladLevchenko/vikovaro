@@ -19,13 +19,14 @@ namespace VKTestApp.Droid
     {
         private ISocialModule _socialModule;
 		private IAppUserModule _userModule;
+		private Activity _context;
+        
 
-        public Context AppContext { get { return Application.Context; } }
-
-		public VKDroidAuthModule(IAppUserModule userModule, ISocialModule socialModule)
+		public VKDroidAuthModule(IAppUserModule userModule, ISocialModule socialModule, Activity context)
 		{
 			_userModule = userModule;
 			_socialModule = socialModule;
+			_context = context;
 		}
 
 		public void Authenticate()
@@ -34,16 +35,18 @@ namespace VKTestApp.Droid
 			if (!_userModule.IsAuthenticated)
             {
                 var acc = RetreiveCredentials();
-                if (acc == null)
+				if (acc == null)
                     DisplayAuthDialog();
+				else
+					_userModule.SetCurrentUser(acc.Properties["user_id"], acc.Properties["access_token"].ToString());
             }
         }
 
         public void DisplayAuthDialog()
         {
-            var intent = GetAuthenticator().GetUI(AppContext);
+			var intent = GetAuthenticator().GetUI(_context);
             intent.SetFlags(ActivityFlags.NewTask);
-            AppContext.StartActivity(intent);
+			_context.StartActivity(intent);
         }
 
         private OAuth2Authenticator GetAuthenticator()
@@ -66,7 +69,7 @@ namespace VKTestApp.Droid
             }
             else
             {
-                //StoreCredentials(e);
+                StoreCredentials(e);
                 //ShowStoreDialog(e);
 				_userModule.SetCurrentUser(e.Account.Properties["user_id"], e.Account.Properties["access_token"].ToString());
             }
@@ -84,7 +87,7 @@ namespace VKTestApp.Droid
 
         private void StoreCredentials(AuthenticatorCompletedEventArgs e)
         {
-            AccountStore.Create(AppContext.ApplicationContext).Save(e.Account,"vikovaro");
+			AccountStore.Create(_context).Save(e.Account,"vikovaro");
         }
 
         private Account RetreiveCredentials()
@@ -95,10 +98,10 @@ namespace VKTestApp.Droid
             }
             else
             {
-                //var store = AccountStore.Create(MainActivity);
-                //var accounts = store.FindAccountsForService("vicovaro");
-                //return accounts.FirstOrDefault();     
-                return null;        
+				var store = AccountStore.Create(_context);
+				var accounts = store.FindAccountsForService("vikovaro");
+                return accounts.FirstOrDefault();     
+                    
 
 
             }
